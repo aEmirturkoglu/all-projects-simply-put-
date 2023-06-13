@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    .button1 {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .is-sussed {
+      background-color: rgb(240, 240, 240);
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <p>yt sub button</p>
+  <button id="button2" class="button1" onclick=" 
+  sus();
+  " >suscribe</button>
+  
+  <script>
+    function sus() {
+      const but = document.querySelector('.button1')
+      
+      if (but.innerText === 'suscribe') {
+          but.innerText = 'sussed';
+          but.classList.add('is-sussed');
+        } else {
+          but.innerText = 'suscribe';
+          but.classList.remove('is-sussed');
+      }
+    }
+
+    
+  </script>
+</body>
+</html>

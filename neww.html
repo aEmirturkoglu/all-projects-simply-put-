@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .gg {
+      border: 2px solid black;
+      border-radius: 6px;
+    }
+
+    .asd {
+      color: blue;
+      background-color: aqua;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="run()" class="gg">gaming</button>
+
+  <script>
+    const gg = document.querySelector('.gg');
+    let asd = 0;
+    function run() {
+      asd++
+      if (asd % 2 == 0) {
+        gg.classList.add('asd')
+      } else if (asd % 1 == 0) {
+        gg.classList.remove('asd')
+      }
+    }
+  </script>
+</body>
+</html>

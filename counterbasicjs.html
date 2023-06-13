@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>counter</title>
+  </head>
+  <body>
+    
+    <div id="div1">total counts = 0</div>
+    <button onclick="onclic()">count up</button>
+    <button onclick="onclic1()">count down</button>
+    <button onclick="reset1()">reset</button>
+    <script>
+    let count = 0;
+
+    function onclic() {
+      count = count +1;
+      let div1 = document.getElementById('div1');
+      div1.innerText = count;
+    }
+     
+    function onclic1() {
+      count = count -1;
+      let div1 = document.getElementById('div1');
+      div1.innerText = count;
+    }
+     
+     function reset1() {
+      count = 0;
+      let div1 = document.getElementById('div1');
+      div1.innerText = count;
+      
+     }
+
+
+    </script>
+  </body>
+</html>
