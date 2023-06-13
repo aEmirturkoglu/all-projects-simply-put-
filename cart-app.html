@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cart uyg</title>
+</head>
+<body>
+  <p>Cart app</p>
+  <button onclick="
+  console.log('cartquantity is :',cartQuantity);
+  ">Show Quantity</button>
+  
+  <button id="b1" onclick=" 
+  add1();
+  console.log(`cartquantity is : ${cartQuantity}`);
+  ">Add to Cart</button>
+
+  <button id="b2" onclick=" 
+    add2();
+  console.log(`cartquantity is : ${cartQuantity}`);
+  ">+2</button>
+
+  <button id="b3" onclick=" 
+    add3();
+  console.log(`cartquantity is : ${cartQuantity}`);
+  ">+3</button>
+
+  <button onclick="cartQuantity = 0;
+  console.log(`cartquantity is : ${cartQuantity}`);
+  ">Reset Cart</button>
+
+  <script>
+  const b1 = document.getElementById('b1');
+  const b2 = document.getElementById('b2');
+  const b3 = document.getElementById('b3');
+
+  b1.addEventListener('click',() => console.log('asd'));
+  b2.addEventListener('click',() => console.log('asd'));
+  b3.addEventListener('click',() => console.log('asd'));
+  
+  let cartQuantity = 0;
+  let value;
+
+  const add1 = () => cartQuantity++;
+  const add2 = () => cartQuantity += 2;
+  const add3 = () => cartQuantity += 3;
+
+  if (cartQuantity >= 10) {
+    console.log('full');
+  } /* else {
+    cartQuantity += document.body.addEventListener('click',() => )  add1() || add2() || add3()
+  } */
+
+  </script>
+</body>
+</html>

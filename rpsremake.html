@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rps-remake</title>
+  <link rel="stylesheet" href="/cssrps.css/rpsremake.css">
+</head>
+<body>
+  <p class="title">R P S</p>
+
+  <button name="rock" class="b1" ><img src="/rpspngfiles/rock-paper-scissors-emoji-cartoon-007-512.webp"></button>
+
+  <button name="paper" class="b2" onclick="
+   playGame('paper')
+  "><img src="/rpspngfiles/scroll-emoji-clipart-md.webp"></button>
+
+  <button name="scissors" class="b3" onclick="
+     playGame('scissors');
+  "><img src="/rpspngfiles/11058-black-scissors.png"></button>
+
+  <p class="js-result"></p>
+  <p class="js-moves moves"></p>
+  <p class="js-score score"></p>
+
+  <button class="reset" onclick="
+   
+  score.wins = 0; 
+
+  score.ties = 0; 
+
+  score.losses = 0
+  localStorage.removeItem('score')
+  updateScoreElem();
+  document.querySelector('.js-moves').innerHTML = ``
+  document.querySelector('.js-result').innerHTML = ``
+  //alert('your score has been reset')
+  ">reset scores</button>
+
+  <button class="auto" onclick="automate();">auto run</button>
+
+  <script src="/jsrps.js/rpsremake.js"></script>
+</body>
+</html>
