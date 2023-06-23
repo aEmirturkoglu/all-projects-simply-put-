@@ -1,4 +1,4 @@
-const { log } = require("console");
+//const { log } = require("console");
 
 console.log('asdsasdasds');
 const products = [{ //img kısmında "" ve '' da olur
@@ -20,28 +20,30 @@ rating:{stars:4.5,count:56},
 priceCents:799
 }];
 
+let productsHTML = ``;
+
 products.forEach((product) => {
-  const html = `
+  const html = /* productsHTML += */ `
         <div class="product-container">
         <div class="product-image-container">
           <img class="product-image"
-            src="images/products/athletic-cotton-socks-6-pairs.jpg">
+            src="${product.image}">
         </div>
 
         <div class="product-name limit-text-to-2-lines">
-          Black and Gray Athletic Cotton Socks - 6 Pairs
+          ${product.name}
         </div>
 
         <div class="product-rating-container">
           <img class="product-rating-stars"
-            src="images/ratings/rating-45.png">
+            src="images/ratings/rating-${product.rating.stars * 10}.png">
           <div class="product-rating-count link-primary">
-            87
+            ${product.rating.count}
           </div>
         </div>
 
         <div class="product-price">
-          $10.90
+        $${(product.priceCents / 100).toFixed(2)}
         </div>
 
         <div class="product-quantity-container">
@@ -71,6 +73,10 @@ products.forEach((product) => {
         </button>
       </div>
   `;
-
-  console.log(html);
+  productsHTML += html;
+  //console.log(html);
 })
+
+console.log(productsHTML);
+
+document.querySelector('.products-grid').innerHTML = productsHTML;
