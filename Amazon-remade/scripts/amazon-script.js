@@ -1,6 +1,9 @@
 //const { log } = require("console");
 
 console.log('asdsasdasds');
+
+
+/*
 const products = [{ //img kısmında "" ve '' da olur
 image:`images/products/athletic-cotton-socks-6-pairs.jpg`,
 name:"Black and Gray Athletic Cotton Socks - 6 Pairs",
@@ -17,9 +20,14 @@ priceCents:2095
 image:`images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg`,
 name:"Adults Plain Cotton T-Shirt - 2 Pack",
 rating:{stars:4.5,count:56},
-priceCents:799
+priceCents:799f
+},{
+image: `images/products/black-2-slot-toaster.jpg`,
+name: `2 Slot Toaster - Black`,
+rating: {stars:5,count:2197},
+priceCents:1899
 }];
-
+*/
 let productsHTML = ``;
 
 products.forEach((product) => {
