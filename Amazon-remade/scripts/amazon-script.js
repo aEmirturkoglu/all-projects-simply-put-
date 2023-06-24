@@ -76,11 +76,13 @@ products.forEach((product) => {
           Added
         </div>
 
-        <button class="add-to-cart-button button-primary">
+        <button class="add-to-cart-button button-primary addtocart" data-product-id="${product.id}">
           Add to Cart
         </button>
       </div>
-  `;
+  `; /*<button class="add-to-cart-button button-primary addtocart" data-product-name="${product.name}">
+  Add to Cart
+</button>*/
   productsHTML += html;
   //console.log(html);
 })
@@ -88,3 +90,41 @@ products.forEach((product) => {
 console.log(productsHTML);
 
 document.querySelector('.products-grid').innerHTML = productsHTML;
+
+document.querySelectorAll('.addtocart').forEach((button) => {
+  button.addEventListener('click', () => {
+   // console.log(button.dataset.productName);  button.dataset.productName e bak ve productName kebab case den camel a dönüyor buna bak
+
+    const productId /*productName*/ = button.dataset.productId /*button.dataset.productName*/;
+
+    let matchingItem ;
+
+    cart.forEach((item) => {
+      if (/* item.productName === productName gerçi bu algılamıyor cartı artırmıyor */ /*productName === item.productName*/ productId === item.productId) {
+        matchingItem = item;
+      } 
+    });
+
+    if (matchingItem) {
+      matchingItem.quantity++
+    } else {
+      /*
+      cart.push({
+        productName,
+        quantity:1
+      }); */
+
+    cart.push({
+      productId,
+      quantity:1
+    });
+    }
+      /*
+    cart.push({
+      productName,
+      quantity:1
+    }); */
+
+    console.log(cart);
+  }
+)})
