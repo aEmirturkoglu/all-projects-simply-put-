@@ -12,6 +12,4 @@ fs.writeFile(path.join(__dirname, '/test', 'hellowwwww.txt'), 'hihi wooorrrrllld
    throw err
  }
  console.log('file done!!!');
-})
-
-})
+})})
