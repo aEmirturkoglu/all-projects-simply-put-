@@ -2,18 +2,26 @@
 const fsPromises = require('fs').promises;
 const path = require('path');
 
-
+const fileOps = async () => {
+  try {
+  const data = await fsPromises.readFile(path.join(__dirname, /*'nodejs',*/ 'asd.txt'), 'utf8')
+  console.log(data);
+  } catch (err) {
+  console.error(err)
+  }}
 
 // fs.readFile('./asd.txt', 'utf-8', (err , data) => {
 //   if (err) throw err;
 //   console.log(data);
 // });
 
-// using path.join() is a much better approach
-fs.readFile(path.join(__dirname, /*'nodejs',*/ 'asd.txt'), 'utf-8', (err , data) => {
-  if (err) throw err;
-  console.log(data);
-});
+// // using path.join() is a much better approach
+// fs.readFile(path.join(__dirname, /*'nodejs',*/ 'asd.txt'), 'utf-8', (err , data) => {
+//   if (err) throw err;
+//   console.log(data);
+// });
+
+fileOps();
 
 //console.log('hello...');
 
