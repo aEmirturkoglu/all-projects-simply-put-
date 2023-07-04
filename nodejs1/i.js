@@ -6,10 +6,19 @@ const fileOps = async () => {
   try {
   const data = await fsPromises.readFile(path.join(__dirname, /*'nodejs',*/ 'asd.txt'), 'utf8')
   console.log(data);
+  await fsPromises.unlink(path.join(__dirname, /*'nodejs',*/ 'asd.txt')/*, 'utf8'*/)
+  await fsPromises.writeFile(path.join(__dirname, /*'nodejs',*/ 'promisewrite.txt'), data)
+  await fsPromises.appendFile(path.join(__dirname, /*'nodejs',*/ 'promisewrite.txt'), '\n\nnice to meet yayaa')
+  await fsPromises.rename(path.join(__dirname, /*'nodejs',*/ 'promisewrite.txt'),
+  path.join(__dirname, /*'nodejs',*/ 'promisecomplete.txt'))
+  const newData = await fsPromises.readFile(path.join(__dirname, /*'nodejs',*/ 'promisecomplete.txt'), 'utf8')
+  console.log(newData);
+
   } catch (err) {
   console.error(err)
   }}
 
+  fileOps();
 // fs.readFile('./asd.txt', 'utf-8', (err , data) => {
 //   if (err) throw err;
 //   console.log(data);
@@ -21,7 +30,7 @@ const fileOps = async () => {
 //   console.log(data);
 // });
 
-fileOps();
+
 
 //console.log('hello...');
 
