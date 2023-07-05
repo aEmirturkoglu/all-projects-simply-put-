@@ -1,11 +1,11 @@
 {
-  "name": "nodejs2",
+  "name": "nodejs3",
   "version": "1.0.0",
   "description": "",
   "main": "i.js",
   "scripts": {
-    "start": "node i",
-    "dev": "nodemon i"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "author": "",
   "license": "ISC",
