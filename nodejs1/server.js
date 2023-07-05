@@ -1,4 +1,3 @@
-//console.log('omr ezm orgezm seni seviyom');
 //console.log(global);
 
 const os = require('os');
