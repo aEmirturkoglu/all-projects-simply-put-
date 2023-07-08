@@ -5,8 +5,7 @@ const fs = require('fs');
 const fsPromises = require('fs').promises;
 const path = require('path');
 const { Module } = require('module');
-
-// parametre 1 den fazla 2 yada fazla olunca message yanına virgül at belki ${} koy logiteme ve 
+ 
 // myEmitter.emit('log', 'Log event emitted!') ve 'Log event emitted!' kısmının soluna bir virgül daha koy ve onuda yaz 'parametre' olarak
 
 const logEvents = async (message) => {
@@ -22,7 +21,6 @@ const logEvents = async (message) => {
       console.error(err);
     }
 }
-//test
 module.exports = logEvents;
-// console. log(format(new Date(), 'yyyyMMdd\tHH:mm:ss'));
+ console. log(format(new Date(), 'yyyyMMdd\tHH:mm:ss'));
 
