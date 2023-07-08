@@ -1,5 +1,3 @@
-//console.log('hi...');
-//"test": "echo \"Error: no test specified\" && exit 1" package.json
 const { format } = require('date-fns');
 const { v4: uuid } = require('uuid');
 //const uuid = require('uuid');
@@ -28,6 +26,3 @@ const logEvents = async (message) => {
 module.exports = logEvents;
 // console. log(format(new Date(), 'yyyyMMdd\tHH:mm:ss'));
 
-// console.log('helllo');
-
-// console.log(uuid());
