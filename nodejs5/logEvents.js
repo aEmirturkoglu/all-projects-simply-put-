@@ -27,7 +27,7 @@ const logEvents = async (message, logName) => {
     }
 }
 //test
-module.exports = logEvents;
+// ztn var middleware dosyasında module.exports = logEvents;
 // console. log(format(new Date(), 'yyyyMMdd\tHH:mm:ss'));
 
 // console.log('helllo');

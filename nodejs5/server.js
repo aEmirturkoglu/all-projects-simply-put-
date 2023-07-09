@@ -3,6 +3,16 @@ const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3500; 
 
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path}`);
+})
+
+app.use(express.urlencoded({ extended: false}))
+
+app.use(express.json())
+
+app.use(express.static(path.join(__dirname, '/public'))) // neden / var publicte?
+
 app.get('^/$|/index(.html)?', (req, res) => {
   //res.send('hello world');
   //res.sendFile('./views/index.html', {root: __dirname});
