@@ -38,50 +38,18 @@ app.use(express.json())
 
 app.use(express.static(path.join(__dirname, '/public'))) // neden / var publicte?
 
-app.get('^/$|/index(.html)?', (req, res) => {
-  //res.send('hello world');
-  //res.sendFile('./views/index.html', {root: __dirname});
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
-})
+app.use('/subdir', express.static( path.join(__dirname, '/public'))) // neden / var publicte?
 
-app.get('/new-page(.html)?', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'new-page.html'));
-})
+// default for top is app.use('/', express.static(path.join(__dirname, '/public')))
 
-app.get('/old-page(.html)?', (req, res) => {
-  res.redirect(301, '/new-page.html');
-})
+//routes
+app.use('/subdir', require('./routes/root')) // why use routers and these lines? look 4 dis upp and try running this npm run dev as well
+
+app.use('/subdir', require('./routes/subdir')) // why use routers and these lines? look 4 dis upp and try running this npm run dev as well
+
+app.use('/employees', require('./routes/api/employees'))
 
 // route handler(s)
-
-app.get('/hello(.html)?', (req, res, next) => {
-  console.log('attempted to load hello.html');
-  next();
-},(req, res) => {
-  //res.sendFile(path.join(__dirname, 'views', 'hello.html'))
-  res.send('hello world!!');
-})
-
-
-// chaining route handlers
-const one = (req, res, next) => {
-  console.log('one');
-  next();
-}
-
-const two = (req, res, next) => {
-  console.log('two');
-  next();
-}
-
-const three = (req, res) => {
-  console.log('three');
-  res.send('Finished!');
-}
-
-app.get('/chain(.html)?', [one, two, three])
-
-// app.use() doesnt accept regex app.all() used for routing 
 
 app.all('*', (req, res) => {
   res.status(404);
