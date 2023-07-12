@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3500; 
 const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const  errorHandler  = require('./middleware/logEvents');
 const { callbackify } = require('util');
@@ -15,22 +16,11 @@ const { callbackify } = require('util');
 app.use(logger) // neden logger() değil bak google.com a gir ctrl shift ı yap ve konsola yaz bunu fetch('http://localhost:3500');
                 // ve cost hatası al cross origin resource sharing
 // cross origin resource sharing
-const whitelist = ['https://www.yoursite.com', 'http://127.0.0.1:5500', 'http://localhost:3500'];
 
-const corsOptions = { // 2.origin callbackin solundaki asıl kim requestlediyse oluyor
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin /*|| !origin*/) { // origin kısmına full bak /**/ içindekine
-      callback(null, true)                            // callback neden callback() buna bak ve 1. parametresi hata olup olmaması 
-    } else {                                          // ve 2.si originin geri gönderilip gönderilmemesi durumu
-      callback(new Error('not allowed by cors'))
-    }
-  },
-  optionsSuccessStatus: 200 
-}
 
 app.use(cors(corsOptions))
 
-//app.use(cors()); // neden düz cors değil bak   ve bunu yapınca cors hatası yok
+//app.use(cors()); // neden düz cors değil bak   ve bunu yapınca cors hatası yok 
 
 app.use(express.urlencoded({ extended: false}))
 
