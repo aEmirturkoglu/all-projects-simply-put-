@@ -1,10 +1,5 @@
-//console.log('hi...');
-//"test": "echo \"Error: no test specified\" && exit 1" package.json
 const { format } = require('date-fns');
 const { v4: uuid } = require('uuid');
-//const { v4 } = require('uuid');
-//const uuid = require('uuid');
-//console.log(uuid.v4());
 const fs = require('fs');
 const fsPromises = require('fs').promises;
 const path = require('path');
@@ -29,8 +24,3 @@ const logEvents = async (message, logName) => {
 //test
 module.exports = logEvents;
 // console. log(format(new Date(), 'yyyyMMdd\tHH:mm:ss'));
-
-// console.log('helllo');
-
-// console.log(uuid());
-
