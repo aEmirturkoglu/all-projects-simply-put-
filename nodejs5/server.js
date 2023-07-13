@@ -1,8 +1,3 @@
-// app.use((req, res, next) => {
-//   logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'reqLog.txt');
-//     console.log(`${req.method} ${req.path}`);
-// })
-
 app.use(logger) //google.com a gir ctrl shift ı yap ve konsola yaz bunu fetch('http://localhost:3500');
 
 app.use(express.urlencoded({ extended: false}))
