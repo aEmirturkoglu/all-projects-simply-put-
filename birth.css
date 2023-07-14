@@ -14,3 +14,8 @@ body {
   color: green;
  }
  
+ #birthday-input {
+  font-size: 1rem;
+  padding: 9px;
+  margin: 9px;
+ }
