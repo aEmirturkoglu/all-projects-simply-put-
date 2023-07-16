@@ -47,85 +47,12 @@ function calculate() {
         result.textContent = "Something went wrong.";
         result.style.color = "red";
       });
-    
   } else {
     // display an error message
     result.textContent = "Please enter a valid date, hour and minute.";
     result.style.color = "red";
-    
   }
 }
-
-// add a click event listener to the button
 calculateButton.addEventListener("click", function() {
-  // call the calculate function once
   calculate();
- 
 });
-
-// dakikayı ekle
-
-/*
-// get the input elements
-const birthdayInput = document.getElementById("birthday-input");
-const hourInput = document.getElementById("hour-input");
-// get the button element
-const calculateButton = document.getElementById("calculate-button");
-// get the result element
-const result = document.getElementById("result");
-
-// define a function to calculate the age
-function calculate() {
-  // get the value of the input elements
-  const birthday = birthdayInput.value;
-  const hour = hourInput.value;
-  // check if the inputs are valid
-  if (birthday && hour) {
-    // split the birthday string by "-" and get the year, month, and day values
-    const birthdayParts = birthday.split("-");
-    const year = parseInt(birthdayParts[0]);
-    const month = parseInt(birthdayParts[1]) - 1; // subtract 1 because months are zero-based
-    const day = parseInt(birthdayParts[2]);
-    // parse the hour value as a number
-    const hourNum = parseInt(hour);
-    // create a date object from the input values
-    const birthdayDate = new Date(year, month, day, hourNum); // no need to add ":00" or "T"
-    // use the fetch method to get the current date and time from the API
-    fetch("https://worldtimeapi.org/api/ip")
-      .then(response => response.json())
-      .then(data => {
-        // create a date object from the API data
-        const currentDate = new Date(data.datetime);
-        // calculate the difference in milliseconds
-        const diff = currentDate - birthdayDate;
-        // convert the difference to years, months, days and hours
-        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-        const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        // display the result without milliseconds and minutes
-        result.textContent = `You are ${years} years ${months} months ${days} days ${hours} hours old.`;
-      })
-      .catch(error => {
-        // display an error message
-        result.textContent = "Something went wrong.";
-        result.style.color = "red";
-      });
-    
-  } else {
-    // display an error message
-    result.textContent = "Please enter a valid date and hour.";
-    result.style.color = "red";
-    
-  }
-}
-
-// add a click event listener to the button
-calculateButton.addEventListener("click", function() {
-  // call the calculate function once
-  calculate();
- 
-});
-*/
-//dakikayı ekle
-

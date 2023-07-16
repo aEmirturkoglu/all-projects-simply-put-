@@ -3,6 +3,14 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.buttonContainer {
+ transition: scale 0.2s;
+}
+
+.buttonContainer:active {
+  scale: 0.9;
+}
+
 body {
   /* background: #8990ec; */
   background: linear-gradient(114deg, #0011ff, #cc0000)

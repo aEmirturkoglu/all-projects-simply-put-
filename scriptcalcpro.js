@@ -20,7 +20,7 @@ const calculateBill = () => {
   const perPersonTotal = total / numberOfPeople
   
 
-  perPersonTotalDiv.innerText = `$${perPersonTotal.toFixed(2)}` //.toFixed(2) bak //.toLocaleString('en-US') bak //birini seç sadece yoksa çalışmaz // buna bak ekstradan
+  perPersonTotalDiv.innerText = `$${perPersonTotal.toFixed(2)}` //.toLocaleString('en-US') bak //birini seç sadece yoksa çalışmaz 
 }
 
 // split the bill between more people 
@@ -48,3 +48,29 @@ const decreasePeople = () => {
   
   calculateBill()
 }
+
+// Restricts input for the given textbox to the given inputFilter function.
+function setInputFilter(textbox, inputFilter) {
+  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+    textbox.addEventListener(event, function() {
+      if (inputFilter(this.value)) {
+        this.oldValue = this.value;
+        this.oldSelectionStart = this.selectionStart;
+        this.oldSelectionEnd = this.selectionEnd;
+      } else if (this.hasOwnProperty("oldValue")) {
+        this.value = this.oldValue;
+        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+      } else {
+        this.value = "";
+      }
+    });
+  });
+}
+
+// Apply the input filter to your textboxes
+setInputFilter(document.getElementById("billTotalInput"), function(value) {
+  return /^\d*$/.test(value) && (value === "" || parseInt(value) > 0 && parseInt(value) < 10000000); // Allow digits only, using a RegExp
+});
+setInputFilter(document.getElementById("tipInput"), function(value) {
+  return /^\d*$/.test(value) && (value === "" || parseInt(value) >= 0 && parseInt(value) <= 100); // Allow digits only, using a RegExp
+});
