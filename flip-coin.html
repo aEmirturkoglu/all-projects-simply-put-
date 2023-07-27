@@ -5,13 +5,59 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #daDiv {
+      padding-top: 50px;
+    }
+
+    .coin-container {
+      width: 100px; /* The width of the coin */
+      height: 100px; /* The height of the coin */
+      perspective: 500px; /* The perspective for the 3D effect */
+    }
+
+    .coin {
+      width: 100%; /* The width of the coin */
+      height: 100%; /* The height of the coin */
+      position: relative; /* The position of the coin */
+      transform-style: preserve-3d; /* The transform style for the 3D effect */
+      animation: flip 1s ease-in-out infinite; /* The animation for the coin flip */
+    }
+
+    .heads, .tails {
+      width: 100%; /* The width of the images */
+      height: 100%; /* The height of the images */
+      position: absolute; /* The position of the images */
+      backface-visibility: hidden; /* The backface visibility for the images */
+    }
+
+    .heads {
+      transform: rotateY(0deg); /* The initial rotation for the heads image */
+    }
+
+    .tails {
+      transform: rotateY(180deg); /* The initial rotation for the tails image */
+    }
+
+    @keyframes flip {
+      from {
+        transform: rotateY(0deg); /* The starting rotation for the coin */
+      }
+      
+      to {
+        transform: rotateY(360deg); /* The ending rotation for the coin */
+      }
+    }
+
+  </style>
 </head>
 <body>
-
 <button id="b1">heads</button>
 <button id="b2">tails</button>
 <button onclick="scoreall = {wins:0,losses:0}; renderit();" >reset score</button>
 <div id="daDiv"></div>  
+<div id="dadiv2"></div>
+<div id="dadiv3"></div>
 <p class="dap"></p>
   <script>
     let result;
@@ -37,18 +83,52 @@
 
     /*let*/ /* guest */ //= //prompt('heads or tails?');
 
-    
-    
+    function animate() {
+  // Declare a variable to store the interval ID
+  let intervalID;
+  // Define a function to clear the interval after 3000 ms
+  function stopAnimation() {
+    clearInterval(intervalID);
+    dadiv1.innerHTML = "";
+    }
+    // Set the interval to update the HTML every 1000 ms and assign it to the variable
+    intervalID = setInterval(() => {
+      dadiv1.innerHTML = `<!-- HTML -->
+  <div class="coin-container">
+    <div class="coin">
+      <img src="headandtailsimg/theHead.jpg" alt="Heads" class="heads"> <!-- The image for the heads side -->
+      <img src="headandtailsimg/theTail.jpg" alt="Tails" class="tails"> <!-- The image for the tails side -->
+    </div>
+  </div>
+  `;
+    }, 900);
+    // Set a timeout to call the stopAnimation function after 3000 ms
+    setTimeout(stopAnimation, 4000);
+  }
+  
+  function animateres(result) {
+    if (result === 'heads') {
+      dadiv3.innerHTML = `<img src="headandtailsimg/theHead.jpg" alt="Heads" class="heads">`
+    } else {
+      dadiv3.innerHTML = `<img src="headandtailsimg/theTail.jpg" alt="Tails" class="tails">`
+    }
+  }
+  
     function runner(guest) {
+      animate()
      /*const*/   let randomizer = Math.random();
       randomizer >= 0.5 ? result ='heads': result = 'tails';
       randomizer; //= Math.random();
-      guest === result? win() /*console.log('ez win gg wp')*/ : lose() //console.log('defeat'); 
+      guest === result? win()  : lose() 
+      
       renderit(guest )
     }
     //let {wins,losses} = scoreall;
-    function renderit(guest) {
-      dadiv1.innerHTML = `wins: ${scoreall.wins}, losses ${scoreall.losses}`;
+    function renderit(guest) {//////////////////////
+      setTimeout(() => {
+        dadiv2.innerHTML = `wins: ${scoreall.wins}, losses ${scoreall.losses}`; 
+      },4000)
+       
       localStorage.setItem("myObj", JSON.stringify(scoreall));
       p11.innerHTML = `you have chosen ${guest || 'nothing yet'}`;
 
@@ -61,35 +141,19 @@
     // let scoreall = JSON.parse(localStorage.getItem("myObj"));
     
 
-    function win() {
+    function win(result) {
+      animateres(result)
       console.log('ez win gg wp');
       scoreall.wins++;
       renderit();
     }
 
-    function lose() {
+    function lose(result) {
+      animateres(result)
       console.log('defeat'); 
       scoreall.losses++;
       renderit();
     }
-
-    /*
-    if (randomizer >= 0.5) {
-      result = 'heads'
-      console.log(result);
-    } else {
-      result = 'tails'
-      console.log(result);
-    }
-
-    if (guest === result) {
-      console.log('ez win gg wp');
-    } else {
-      console.log('defeat');
-    } 
-    */
-   
-    
   </script>  
 </body>
 </html>
