@@ -10,10 +10,24 @@ body {
   background-color: black;
  }
  
- .theP,
+ div{
+  margin-right: 5px;
+ }
+
+ .theP {
+  
+    display: grid;
+    grid-template-columns: 300px ;
+    word-wrap: break-word;
+    column-gap: 10px;
+    row-gap: 50px;
+    align-items: center;
+   
+ }
+
  .theP2 {
   display: grid;
-  grid-template-columns: 200px 150px 100px 150px;
+  grid-template-columns: 200px 150px 100px 150px 150px;
   word-wrap: break-word;
   column-gap: 10px;
   row-gap: 10px;
