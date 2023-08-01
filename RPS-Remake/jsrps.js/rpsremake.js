@@ -14,6 +14,17 @@ let score = JSON.parse(localStorage.getItem('score'))
       let isautomate = false;
       let intervalID;
 
+      const autobutton = document.querySelector('.auto'); // select the element
+      
+      function autobut(isautomate) {
+        if (isautomate) {
+          autobutton.textContent = `auto run: on`; // change the text content
+        } else {
+          autobutton.textContent = `auto run: off`;
+        }
+      }
+
+
       function automate() {
         if (!isautomate) {
           intervalID = setInterval(() => { //func() yada function asd() olarak da olur 
@@ -21,9 +32,11 @@ let score = JSON.parse(localStorage.getItem('score'))
             playGame(playerMove);
            }, 1000);
            isautomate = true;
+           autobut(isautomate)
         } else {
           clearInterval(intervalID);
           isautomate = false;
+          autobut(isautomate)
         }
       }   //onclick="
           //playGame('rock')
@@ -112,34 +125,34 @@ let score = JSON.parse(localStorage.getItem('score'))
       if (playerMove == 'rock') {
 
         playerMove =  `<img style="width: 75px; height: 75px;"
-         src='/rpspngfiles/rock-paper-scissors-emoji-cartoon-007-512.webp'>`
+         src='/RPS-Remake/rpspngfiles/rock-paper-scissors-emoji-cartoon-007-512.webp'>`
 
       } else if (playerMove == 'paper') {
 
         playerMove = `<img style="width: 75px; height: 75px;"
-        src='/rpspngfiles/scroll-emoji-clipart-md.webp'>`
+        src='/RPS-Remake/rpspngfiles/scroll-emoji-clipart-md.webp'>`
         
       } else {
 
         playerMove = `<img style="width: 75px; height: 75px;"
-        src='/rpspngfiles/11058-black-scissors.png'>`
+        src='/RPS-Remake/rpspngfiles/11058-black-scissors.png'>`
       
       };
 
       if (computerMove == 'rock') {
       
         computerMove =  `<img style="width: 75px; height: 75px;"
-        src='/rpspngfiles/rock-paper-scissors-emoji-cartoon-007-512.webp'>`
+        src='/RPS-Remake/rpspngfiles/rock-paper-scissors-emoji-cartoon-007-512.webp'>`
       
       } else if (computerMove == 'paper') {
       
         computerMove = `<img style="width: 75px; height: 75px;"
-        src='/rpspngfiles/scroll-emoji-clipart-md.webp'>`      
+        src='/RPS-Remake/rpspngfiles/scroll-emoji-clipart-md.webp'>`      
       
       } else {
         
         computerMove = `<img style="width: 75px; height: 75px;"
-        src='/rpspngfiles/11058-black-scissors.png'>`
+        src='/RPS-Remake/rpspngfiles/11058-black-scissors.png'>`
       
       }
 

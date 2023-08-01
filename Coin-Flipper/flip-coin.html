@@ -5,56 +5,83 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
   <style>
-    #daDiv {
-      padding-top: 50px;
-    }
+  .centerer {
+    text-align: center;
+  }
 
-    .coin-container {
-      width: 100px; /* The width of the coin */
-      height: 100px; /* The height of the coin */
-      perspective: 500px; /* The perspective for the 3D effect */
-    }
+  #b1, #b2, #b3{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .coin {
-      width: 100%; /* The width of the coin */
-      height: 100%; /* The height of the coin */
-      position: relative; /* The position of the coin */
-      transform-style: preserve-3d; /* The transform style for the 3D effect */
-      animation: flip 1s ease-in-out infinite; /* The animation for the coin flip */
-    }
+  p {
+    text-align: center;
+  }
 
-    .heads, .tails {
-      width: 100%; /* The width of the images */
-      height: 100%; /* The height of the images */
-      position: absolute; /* The position of the images */
-      backface-visibility: hidden; /* The backface visibility for the images */
-    }
+  #daDiv {
+    padding-top: 50px;
+    display: flex; /* Add this to make the coin container a flexbox */
+    justify-content: center; /* Add this to center the coin container horizontally */
+  }
 
-    .heads {
-      transform: rotateY(0deg); /* The initial rotation for the heads image */
-    }
+  .coin-container {
+    width: 100px; /* The width of the coin */
+    height: 100px; /* The height of the coin */
+    perspective: 500px; /* The perspective for the 3D effect */
+  }
 
-    .tails {
-      transform: rotateY(180deg); /* The initial rotation for the tails image */
-    }
+  .coin {
+    width: 100%; /* The width of the coin */
+    height: 100%; /* The height of the coin */
+    position: relative; /* The position of the coin */
+    transform-style: preserve-3d; /* The transform style for the 3D effect */
+    animation: flip 1s ease-in-out infinite; /* The animation for the coin flip */
+  }
 
-    @keyframes flip {
-      from {
-        transform: rotateY(0deg); /* The starting rotation for the coin */
-      }
-      
-      to {
-        transform: rotateY(360deg); /* The ending rotation for the coin */
-      }
+  .heads, .tails {
+    width: 100%; /* The width of the images */
+    height: 100%; /* The height of the images */
+    position: absolute; /* The position of the images */
+    backface-visibility: hidden; /* The backface visibility for the images */
+  }
+
+  .heads {
+    transform: rotateY(0deg); /* The initial rotation for the heads image */
+  }
+
+  .tails {
+    transform: rotateY(180deg); /* The initial rotation for the tails image */
+  }
+
+  @keyframes flip {
+    from {
+      transform: rotateY(0deg); /* The starting rotation for the coin */
     }
+    
+    to {
+      transform: rotateY(360deg); /* The ending rotation for the coin */
+    }
+  }
+
+  h2, button, #dadiv2, #dadiv3 { /* Add this to center the other elements */
+    text-align: center;
+  }
 
   </style>
+
 </head>
 <body>
+  <h2>try to guess it</h2>
+
+  <div class="centerer">
 <button id="b1">heads</button>
 <button id="b2">tails</button>
-<button onclick="scoreall = {wins:0,losses:0}; dadiv3.innerHTML=''; renderit();" >reset score</button>
+<button id="b3" onclick="scoreall = {wins:0,losses:0}; dadiv3.innerHTML=''; renderit();" >reset score</button>
+  </div>
+
 <div id="daDiv"></div>  
 <div id="dadiv2"></div>
 <div id="dadiv3"></div>
@@ -115,7 +142,7 @@
       (result) => {
         dadiv3.innerHTML = `<img src="${imageSrc}" width='150' height='150'>`;
       },
-      5000,
+      4500,////////////////
       result
     );
   }
@@ -153,7 +180,8 @@
     animateres(result);
     scoreall.wins++;
     //respfunc(guest, result); // Pass guest and result
-    setTimeout(()=>{p11.innerHTML = "u won"},5000)
+    setTimeout(()=>{p11.innerHTML = "u won"},4500)
+    dadiv3.innerHTML = ''
     renderit();
   }
 
@@ -161,7 +189,8 @@
     animateres(result);
     scoreall.losses++;
     //respfunc(guest, result); // Pass guest and result
-    setTimeout(()=>{p11.innerHTML = "u lost"},5000)
+    setTimeout(()=>{p11.innerHTML = "u lost"},4500)
+    dadiv3.innerHTML = ''
     renderit();
   }
 
