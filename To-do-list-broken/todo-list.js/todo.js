@@ -4,7 +4,6 @@ let todoList = [];
 const pelem = document.querySelector('.theP'); 
 const dater = document.querySelector('.dater'); 
 const deleteCheckedButton = document.querySelector('.delete-checked-button'); 
-rendertodo(); 
 
 function rendertodo() {
  let todohtml = ''; 
@@ -63,6 +62,10 @@ function rendertodo() {
  });
  };
  }
+
+ console.log(todoContent); // check if this element exists and is correct
+console.log(todoText); // check if this element exists and is a child of todoContent
+console.log(inputText); // check if this element exists and is correct
 
 }
 
@@ -161,7 +164,7 @@ function editTodo(index) {//////////////////////////////////////////////////////
     let editButton = document.getElementById(`edit-${index}`);
     let deleteButton = document.getElementById(`delete-${index}`);
     // create an input element and a date picker element
-    let inputText = document.createElement('input');
+    let inputText = document.createElement('input') || null;
     let inputDate = document.createElement('input');
     // set their types to text and date
     inputText.type = 'text';
@@ -187,7 +190,8 @@ function editTodo(index) {//////////////////////////////////////////////////////
     todoContent.replaceChild(inputText, todoText);
     todoContent.replaceChild(inputDate, todoDate);
     // use the todo item as the parent node to replace the edit button with the save button
-    todoItem.replaceChild(saveButton, editButton);
+    //todoItem.replaceChild(saveButton, editButton);
+    saveButton.replaceChild(saveButton, editButton);
     // hide the delete button
     deleteButton.style.display = 'none';
   } catch (error) {
